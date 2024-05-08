@@ -2,15 +2,3 @@
 - name: Copy the content to webserver
   hosts: dev
 
-  tasks:
-    - name: set blue content 
-      ansible.builtin.copy:
-        content: "Welcome to Blue Server"
-        dest: /var/www/html/index.html
-      tags: [never,blue]
-
-    - name: set green server
-      ansible.builtin.copy:
-        content: "Welcome to Green Server"
-        dest: /var/www/html/index.html
-      tags: [never,green]
