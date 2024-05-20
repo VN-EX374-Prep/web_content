@@ -1,3 +1,17 @@
 ---
 - name: copy the content with tags
   hosts: dev
+  become: yes
+  tasks:
+    - name: copy the content for blue server
+      ansible.builtin.copy:
+        content: "Welcome to Blue Server"
+        dest: /var/www/html/index.html
+      tags: [never,blue]
+
+
+    - name: copy the content for green server
+      ansible.builtin.copy:
+        content: "Welcome to Green Server"
+        dest: /var/www/html/index.html
+      tags: [never,green]
